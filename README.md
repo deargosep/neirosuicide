@@ -8,3 +8,5 @@ second argument: choose level of depression (default is 0)
 death is 10
 
 Have fun!
+
+install required packages: pip install -r requirements.txt
