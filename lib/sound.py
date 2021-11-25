@@ -31,13 +31,14 @@ class Sound():
             os.system("say " + string)
 
     def listenTo(self) -> str:
-        if self.input == 'text':
-            return input('текст: ')
-        else:
-            with sr.Microphone() as source:
-                audio_text = r.listen(source)
-                print("end of listening. processing..")
-                try:
-                    return r.recognize_google(audio_text, language="en-US")
-                except:
-                    return 'unrecognizable'
+        # if self.input == 'text':
+        userInput = input('текст: ')
+        return userInput
+        # else:
+        #     with sr.Microphone() as source:
+        #         audio_text = r.listen(source)
+        #         print("end of listening. processing..")
+        #         try:
+        #             return r.recognize_google(audio_text, language="en-US")
+        #         except:
+        #             return 'unrecognizable'

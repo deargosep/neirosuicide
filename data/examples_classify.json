@@ -1,0 +1,15 @@
+[
+    ["hey there, friend :)", "Positive"],
+    ["death", "Negative"],
+    ["i like you", "Positive"],
+    ["hello", "Neutral"],
+    ["i've lost someone precious", "Negative"],
+    ["it's sad i have to do this", "Negative"],
+    ["i'd like to eat a ham", "Negative"],
+    ["i can't feel my limbs", "Negative"],
+    ["I am so happy to see you!", "Positive"],
+    ["i feel so abandoned", "Negative"],
+    ["i dont wanna wake up", "Negative"],
+    ["You are precious to me", "Positive"],
+    ["who are you?", "Neutral"]
+]

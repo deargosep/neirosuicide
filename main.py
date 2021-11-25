@@ -59,19 +59,19 @@ siri = Talk()
 def main():
     sound.say('привет, напиши или скажи мне что нибудь ')
     userType = sound.listenTo()
-    sound.say("читаю:" + userType)
+    sound.say("читаю: " + userType)
     sound.say('хм..')
-    if check(userType) == 'bad':
+    result = check(userType)
+    if result == 'bad' or result == 'Negative':
         siri.increment()
-    elif check(userType) == 'good':
+    elif result == 'good' or result == 'Positive':
         siri.decrement()
+    elif result == 'good' or result == 'Neutral':
+        sound.say('ok..?')
+    elif hasattr(result, 'id'):
+        sound.say(result['choices'][0]['text'].strip())
     else:
         sound.say('чего?')
-
-    # if :
-    # elif userType in read():
-    #     Talk().decrement()
-    # else:
 
 
 while True:
