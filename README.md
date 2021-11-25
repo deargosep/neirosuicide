@@ -9,3 +9,5 @@ second argument: choose level of depression (default is 0). death is 10
 also edit .env file. if you want to use openai, you need to set up an api key in OPENAI_API_KEY variable and set USE_AI to true.
 
 Have fun!
+
+install required packages: pip install -r requirements.txt
