@@ -1,4 +1,5 @@
 import os
+import platform
 import speech_recognition as sr
 
 r = sr.Recognizer()
@@ -12,7 +13,16 @@ class Sound():
         self.input = value
 
     def play(self, filePath: str):
-        os.system("afplay " + filePath)
+        if platform.system() == 'Linux':
+            os.system("mpg123 " + filePath)
+        elif platform.system() == 'Darwin':
+            os.system("afplay " + filePath)
+        elif platform.system() == 'Windows':
+            os.system(
+                f"powershell -c (New-Object Media.SoundPlayer '{filePath}').PlaySync();")
+        else:
+            print(
+                f"the hell os are you on? i can't play sound. would you kindly open it by yourself? \npath is {filePath}")
 
     def say(self, string: str):
         if self.input == 'text':
