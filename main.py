@@ -11,7 +11,7 @@ args_length = len(sys.argv)
 class Talk(object):
     def __init__(self):
         if args_length >= 3:
-            self.depression = sys.argv[2]
+            self.depression = int(sys.argv[2])
         else:
             self.depression = 0
         if args_length >= 2:
@@ -21,6 +21,7 @@ class Talk(object):
         sound.setInput(self.input)
         print("input type:", self.input)
         print("depression level:", self.depression)
+        self.checkDie()
 
     def setInput(self, value: str):
         self.input = value
@@ -30,15 +31,26 @@ class Talk(object):
         self.depression += value
         print("\nуровень депрессии:", self.depression)
         sound.say('ай блять')
+        self.checkDie()
 
     def decrement(self, value=1):
         self.depression -= value
         print("\nуровень депрессии:", self.depression)
         sound.say('спасибо')
+        self.checkDie()
 
-    def reset():
+    def reset(self):
         self.depression = 0
         print('reseted')
+
+    def checkDie(self):
+        if self.depression >= 10:
+            self.die()
+
+    def die(self):
+        sound.say('блять. заебало. всё, пока.')
+        sound.play("assets/gunshot.m4a")
+        sys.exit()
 
 
 siri = Talk()
