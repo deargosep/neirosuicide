@@ -1,5 +1,8 @@
 from dotenv import dotenv_values
+from iot.light import BulbControl
 import openai
+
+light = BulbControl()
 
 
 def complete(query):
@@ -30,6 +33,7 @@ def classify(query, examples):
 def analyze(query, examples_classify: dict) -> str:
     classified = classify(query, examples_classify)
     completed = complete(query)
+    light.emote(classified['label'])
     if classified['label'] == 'Neutral':
         return completed
     else:
